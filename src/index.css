@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  body {
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-glow {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+    box-shadow: 0 0 0 rgba(245, 158, 11, 0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.5), 0 0 60px rgba(245, 158, 11, 0.2);
+  }
+}
+
+@keyframes gentle-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.4), 0 0 40px rgba(245, 158, 11, 0.1);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.6), 0 0 60px rgba(245, 158, 11, 0.2);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes gentle-vibrate {
+  0%, 100% {
+    transform: translateX(0) scale(1);
+  }
+  25% {
+    transform: translateX(1px) scale(1.01);
+  }
+  75% {
+    transform: translateX(-1px) scale(1.01);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-fade-in-glow {
+  animation: fade-in-glow 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-gentle-pulse {
+  animation: gentle-pulse 3s ease-in-out infinite;
+}
+
+.animate-gentle-vibrate {
+  animation: gentle-vibrate 0.6s ease-in-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 8px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #f59e0b, #d97706);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #d97706, #b45309);
+  background-clip: content-box;
+}
+
+/* Ensure proper mobile viewport */
+@media (max-width: 768px) {
+  .max-w-xs {
+    max-width: calc(100vw - 100px);
+  }
+  
+  .max-w-md {
+    max-width: calc(100vw - 60px);
+  }
+}
+
+/* Enhanced focus states */
+.focus-within\:ring-amber-300:focus-within {
+  --tw-ring-color: rgb(252 211 77 / 0.5);
+}
+
+/* Smooth transitions for all interactive elements */
+button, input, [role="button"] {
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Glass morphism effect */
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Enhanced shadow system */
+.shadow-divine {
+  box-shadow: 
+    0 4px 6px -1px rgba(245, 158, 11, 0.1),
+    0 2px 4px -1px rgba(245, 158, 11, 0.06),
+    0 0 0 1px rgba(245, 158, 11, 0.05);
+}
+
+.shadow-divine-lg {
+  box-shadow: 
+    0 10px 15px -3px rgba(245, 158, 11, 0.1),
+    0 4px 6px -2px rgba(245, 158, 11, 0.05),
+    0 0 0 1px rgba(245, 158, 11, 0.05);
+}
+
+/* Text selection styling */
+::selection {
+  background-color: rgba(245, 158, 11, 0.2);
+  color: rgb(146, 64, 14);
+}
+
+::-moz-selection {
+  background-color: rgba(245, 158, 11, 0.2);
+  color: rgb(146, 64, 14);
+  }
+}
